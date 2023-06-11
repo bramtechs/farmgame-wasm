@@ -1,32 +1,32 @@
 module farm.farmplot;
 
 import w4 = wasm4;
+import w4e = wasm4e;
+
 import primitive.polygon;
 import primitive.point;
 import farm.farmplots;
+import gfx.noiserect;
 
 const CELLS_W = w4.screenSize / CELLS_X;
 const CELLS_H = w4.screenSize / CELLS_Y;
 
 struct FarmPlot
 {
-    static Polygon poly = Polygon([
-        Point(0, 0),
-        Point(1, 0),
-        Point(1, 1),
-        Point(0, 1),
-    ]);
+    static NoiseRect noise;
 
-    Point pos;
+    static this(){
+        noise = NoiseRect(CELLS_W, CELLS_H);
+        noise.makeNoise(0, 1, 0.5f);
+    }
+
+    int x;
+    int y;
 
     this(int x, int y)
     {
-        pos = Point(x, y);
-    }
-
-    this(Point pos)
-    {
-        this.pos = pos;
+        this.x = x;
+        this.y = y;
     }
 
     void update(float delta)
@@ -36,6 +36,7 @@ struct FarmPlot
 
     void render()
     {
-        poly.render(1, pos.scale(CELLS_W), CELLS_W);
+        *w4.drawColors = 1;
+        w4e.hollowRect(x*CELLS_W, y*CELLS_H, CELLS_W, CELLS_H);
     }
 }

@@ -5,8 +5,10 @@ endif
 
 # Just rebuild every time because it's fast.
 # cart.wasm: Makefile dub.json $(wildcard source/*.d)
+.PHONY: build
 build:
 	dub build ${DUB_FLAGS}
+	cp cart.wasm ./build/cart.wasm
 
 clean:
 	rm -rf cart.wasm .dub

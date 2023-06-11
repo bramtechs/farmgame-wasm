@@ -4,6 +4,7 @@ import w4 = wasm4;
 import gui.cursor;
 import primitive.point;
 import farm;
+import gui.palette;
 
 static Farm myFarm;
 
@@ -51,5 +52,7 @@ extern(C) void update()
     w4.rect(1,1,w4.screenSize-2,w4.screenSize-2);
 
     myFarm.render();
+
+    drawPalette();
     renderCursor();
 }
