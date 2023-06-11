@@ -8,6 +8,7 @@ endif
 .PHONY: build
 build:
 	dub build ${DUB_FLAGS}
+	mkdir -p build
 	cp cart.wasm ./build/cart.wasm
 
 clean:

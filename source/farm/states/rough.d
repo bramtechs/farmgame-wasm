@@ -34,6 +34,5 @@ struct RoughPlot {
 
         *w4.drawColors = 0x02;
         w4.rect(x*CELLS_W+BORDER,y*CELLS_H+BORDER,CELLS_W-BORDER-1,CELLS_H-BORDER-1);
-
     }
 }

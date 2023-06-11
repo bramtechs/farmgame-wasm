@@ -50,12 +50,16 @@ void input()
     prevState = gamepad;
 }
 
+void clear() {
+    w4.rect(0, 0, w4.screenSize, w4.screenSize);
+}
+
 extern (C) void update()
 {
     input();
 
     *w4.drawColors = 2;
-    w4.rect(1, 1, w4.screenSize - 2, w4.screenSize - 2);
+    clear();
 
     myFarm.render();
 
