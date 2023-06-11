@@ -3,6 +3,9 @@ module app;
 import w4 = wasm4;
 import gui.cursor;
 import primitive.point;
+import farm;
+
+static Farm _farm();
 
 extern(C) int rand();
 
@@ -46,5 +49,6 @@ extern(C) void update()
     *w4.drawColors = 2;
     w4.rect(1,1,w4.screenSize-2,w4.screenSize-2);
 
+    _farm.render();
     renderCursor();
 }

@@ -1,9 +1,10 @@
 module gui.cursor;
+
 import w4 = wasm4;
 import primitive.polygon;
 import primitive.point;
 
-Polygon MousePoly = Polygon([
+Polygon _mousePoly = ([
     Point(0, 0),
     Point(3, 3),
     Point(0, 0),
@@ -16,5 +17,5 @@ Polygon MousePoly = Polygon([
 void renderCursor()
 {
     const Point mousePos = Point(*w4.mouseX, *w4.mouseY).add(3,3);
-    MousePoly.render(1, mousePos, 2);
+    _mousePoly.render(1, mousePos, 2);
 }

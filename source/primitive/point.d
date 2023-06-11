@@ -2,6 +2,8 @@ module primitive.point;
 
 struct Point
 {
+    public static Point zero = Point(0, 0);
+
     int x;
     int y;
 
@@ -26,5 +28,4 @@ struct Point
     {
         return Point(this.x + x, this.y + y);
     }
-
 }
