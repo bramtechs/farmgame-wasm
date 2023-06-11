@@ -1,11 +1,15 @@
 module farm;
 
 import farm.farmplots;
-import gameobject;
 
-class Farm : GameObject
+struct Farm
 {
-    FarmPlots plots();
+    FarmPlots plots;
+
+    public void setup()
+    {
+        plots.setup();
+    }
 
     public void update(float delta)
     {
