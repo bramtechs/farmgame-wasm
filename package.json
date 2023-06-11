@@ -1,0 +1,32 @@
+{
+    "name": "farmgame-wasm",
+    "version": "1.0.0",
+    "description": "WASM farming game",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "build": "make",
+        "run": "w4 run cart.wasm",
+        "dev": "mkdir -p build; w4 watch ./cart.wasm",
+        "native": "make && w4 run-native cart.wasm",
+        "clean": "rm -rf dist; rm -f cart.wasm",
+        "dist": "w4 bundle cart.wasm --html dist/html",
+        "dist:win": "w4 bundle cart.wasm --win dist/win",
+        "dist:mac": "w4 bundle cart.wasm --mac dist/mac",
+        "dist:linux": "w4 bundle cart.wasm --linux dist/linux"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bramtechs/farmgame-wasm.git"
+    },
+    "keywords": [],
+    "author": "Doomhowl Interactive",
+    "license": "GPLv3",
+    "bugs": {
+        "url": "https://github.com/bramtechs/farmgame-wasm/issues"
+    },
+    "homepage": "https://github.com/bramtechs/farmgame-wasm#readme",
+    "dependencies": {
+        "wasm4": "^2.5.4"
+    }
+}
