@@ -1,7 +1,8 @@
 module app;
 
 import w4 = wasm4;
-import types : Point;
+import gui.cursor;
+import primitive.point;
 
 extern(C) int rand();
 
@@ -40,6 +41,10 @@ void input()
 
 extern(C) void update()
 {
+    input();
+
     *w4.drawColors = 2;
     w4.rect(1,1,w4.screenSize-2,w4.screenSize-2);
+
+    renderCursor();
 }
