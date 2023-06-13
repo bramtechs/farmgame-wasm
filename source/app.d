@@ -8,7 +8,6 @@ import gui.palette;
 import gui.highlight;
 
 static Farm myFarm;
-static bool renderPalette;
 
 extern (C) int rand();
 
@@ -25,33 +24,31 @@ void input()
 
     if (justPressed & w4.buttonLeft)
     {
-        // left
-        w4.trace("left");
     }
 
     if (justPressed & w4.buttonRight)
     {
-        // right
-        w4.trace("right");
     }
 
     if (justPressed & w4.buttonUp)
     {
-        // up
-        w4.trace("up");
     }
 
     if (justPressed & w4.buttonDown)
     {
-        // down
-        w4.trace("down");
-        renderPalette = !renderPalette;
+        togglePaletteVisible();
+    }
+
+    if (justPressed & w4.button1)
+    {
+        toggleCursorVisible();
     }
 
     prevState = gamepad;
 }
 
-void clear() {
+void clear()
+{
     w4.rect(0, 0, w4.screenSize, w4.screenSize);
 }
 
@@ -64,11 +61,7 @@ extern (C) void update()
 
     myFarm.render();
 
-    if (renderPalette)
-    {
-        drawPalette();
-    }
-
+    renderPalette();
     renderHighlight();
     renderCursor();
 }

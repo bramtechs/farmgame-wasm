@@ -15,8 +15,23 @@ Polygon mousePoly = ([
     Point(-1, 1)
 ]);
 
+bool isVisible = false;
+
 void renderCursor()
 {
-    const Point mousePos = Point(*w4.mouseX, *w4.mouseY).add(3,3);
-    mousePoly.render(CDARK, mousePos, 2);
+    if (isVisible)
+    {
+        const Point mousePos = Point(*w4.mouseX, *w4.mouseY).add(3, 3);
+        mousePoly.render(CDARK, mousePos, 2);
+    }
+}
+
+void toggleCursorVisible()
+{
+    isVisible = !isVisible;
+}
+
+void setCursorVisible(bool visible)
+{
+    isVisible = visible;
 }

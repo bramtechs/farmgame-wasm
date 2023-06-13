@@ -8,18 +8,35 @@ const int COLORS = 4;
 const int BAR_WIDTH = 20;
 const int BAR_HEIGHT = 10;
 
-void drawPalette() {
-    auto offset = Point(20,20);
+bool isVisible = false;
+
+void renderPalette()
+{
+    if (!isVisible)
+        return;
+
+    auto offset = Point(20, 20);
     static char[2] text;
     text[1] = '\0';
-    for (ushort i = 0; i <= COLORS; i++){
+    for (ushort i = 0; i <= COLORS; i++)
+    {
         *w4.drawColors = i;
-        w4.rect(offset.x,offset.y, BAR_WIDTH, BAR_HEIGHT);
+        w4.rect(offset.x, offset.y, BAR_WIDTH, BAR_HEIGHT);
 
-        *w4.drawColors = i != 4 ? 4:1;
-        text[0] = cast(char)(i+48);
-        w4.text(cast(const char*) &text, offset.x, offset.y);
+        *w4.drawColors = i != 4 ? 4 : 1;
+        text[0] = cast(char)(i + 48);
+        w4.text(cast(const char*)&text, offset.x, offset.y);
 
-        offset = offset.add(0,BAR_HEIGHT);
+        offset = offset.add(0, BAR_HEIGHT);
     }
+}
+
+void setPaletteVisible(bool visible)
+{
+    isVisible = visible;
+}
+
+void togglePaletteVisible()
+{
+    isVisible = !isVisible;
 }
