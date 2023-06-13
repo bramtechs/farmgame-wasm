@@ -5,6 +5,7 @@ import gui.cursor;
 import primitive.point;
 import farm;
 import gui.palette;
+import gui.highlight;
 
 static Farm myFarm;
 static bool renderPalette;
@@ -68,5 +69,6 @@ extern (C) void update()
         drawPalette();
     }
 
+    renderHighlight();
     renderCursor();
 }

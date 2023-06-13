@@ -22,3 +22,11 @@ void pixel(int x, int y) {
     w4.framebuffer[idx] =
         cast(ubyte)((color << shift) | (w4.framebuffer[idx] & ~mask));
 }
+
+void cornerlessRect(int x, int y, uint width, int height){
+    w4.hline(x+1,y,width-1);
+    w4.vline(x,y+1,height-1);
+
+    w4.hline(x+1,y+height,width-1);
+    w4.vline(x+width,y+1,height-1);
+}
