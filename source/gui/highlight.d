@@ -10,5 +10,5 @@ void renderHighlight() {
     int posY = (cast(int) (*w4.mouseY / CELLS_H)) * CELLS_H;
 
     *w4.drawColors = CDARK;
-    w4e.cornerlessRect(posX, posY, CELLS_W, CELLS_H);
+    w4e.cornerlessRect(posX, posY, CELLS_W-1, CELLS_H-1);
 }
