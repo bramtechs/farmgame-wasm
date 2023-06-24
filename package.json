@@ -7,7 +7,7 @@
     "scripts": {
         "build": "make",
         "web": "make && w4 run cart.wasm",
-        "dev": "mkdir -p build; w4 watch ./cart.wasm",
+        "dev": "make && mkdir -p build && w4 watch ./cart.wasm",
         "native": "make && w4 run-native cart.wasm",
         "clean": "rm -rf dist; rm -f cart.wasm",
         "dist": "mkdir -p dist; w4 bundle cart.wasm --html dist/game.html",

@@ -1,6 +1,12 @@
 # WASM Farmgame
 
-## Build
+## Build with docker + docker-compose (recommended)
+
+```
+docker-compose up
+```
+
+## Build manually
 
 1. Install npm, ldc, dub and the [WASI-sdk](https://github.com/WebAssembly/wasi-sdk/releases/tag/wasi-sdk-20).
 
