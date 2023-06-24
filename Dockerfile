@@ -19,8 +19,11 @@ COPY package*.json ./
 # Install npm dependencies
 RUN npm install
 
+# Copy src
+COPY . .
+
 # Expose port 4444
 EXPOSE 4444
 
 # Set the default command
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "web"]

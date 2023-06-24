@@ -7,5 +7,3 @@ services:
       dockerfile: Dockerfile
     ports:
       - 4444:4444
-    volumes:
-      - .:/app:rw
