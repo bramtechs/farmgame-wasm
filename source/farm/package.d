@@ -1,6 +1,7 @@
 module farm;
 
 import farm.farmplots;
+import gui.toolbox;
 
 struct Farm
 {

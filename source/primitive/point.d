@@ -13,6 +13,11 @@ struct Point
         this.y = y;
     }
 
+    this(float x, float y)
+    {
+        this(cast(int)x, cast(int)y);
+    }
+
     Point scale(float factor) const
     {
         return Point(cast(int)(cast(float) x * factor),
